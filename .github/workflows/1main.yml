@@ -9,7 +9,7 @@ jobs:
   build:
 
 
-    runs-on: windows-2016
+    runs-on: windows-2019
 
 
     steps:
@@ -34,7 +34,7 @@ jobs:
 
       run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
 
-    - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+    - run: Disable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
     - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
 
